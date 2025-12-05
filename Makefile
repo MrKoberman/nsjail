@@ -32,7 +32,7 @@ COMMON_FLAGS += -O2 -c \
 CXXFLAGS += $(USER_DEFINES) $(COMMON_FLAGS) $(PROTOBUF_CFLAGS) \
 	-std=c++20 -fno-exceptions -Wno-unused -Wno-unused-parameter
 
-LDFLAGS += -pie -Wl,-z,noexecstack -lpthread $(PROTOBUF_LIBS)
+LDFLAGS += -pie -static -Wl,-z,noexecstack -lpthread $(PROTOBUF_LIBS)
 
 ifeq ($(NL3_EXISTS), yes)
 	CXXFLAGS += $(shell pkg-config --cflags libnl-route-3.0)
